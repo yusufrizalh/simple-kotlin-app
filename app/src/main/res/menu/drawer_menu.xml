@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/drawer_account"
+        android:title="Account" />
+    <item
+        android:id="@+id/drawer_files"
+        android:title="Recent Files" />
+    <item
+        android:id="@+id/drawer_bookmark"
+        android:title="Bookmark" />
+    <item
+        android:id="@+id/drawer_trash"
+        android:title="Trash Bin" />
+</menu>
