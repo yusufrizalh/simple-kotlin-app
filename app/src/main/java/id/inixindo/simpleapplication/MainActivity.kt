@@ -114,6 +114,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
 
             R.id.submenu_gallery -> {
+                // startActivity(Intent(this@MainActivity, AccessCameraActivity::class.java))
                 Toast.makeText(applicationContext, "Submenu Gallery", Toast.LENGTH_LONG)
                     .show(); true
             }

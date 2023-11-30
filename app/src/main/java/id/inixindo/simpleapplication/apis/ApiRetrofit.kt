@@ -13,7 +13,8 @@ class ApiRetrofit {
 
             val clientBuilder = OkHttpClient.Builder().addInterceptor(interceptor).build()
 
-            val retrofitBuilder = Retrofit.Builder().baseUrl("http://192.168.1.6/courses/")
+            val retrofitBuilder = Retrofit.Builder()
+                .baseUrl("https://inixkotlin.000webhostapp.com/courses/")
                 .client(clientBuilder).addConverterFactory(GsonConverterFactory.create()).build()
 
             return retrofitBuilder.create(ApiInterface::class.java)
