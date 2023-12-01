@@ -1,11 +1,13 @@
 package id.inixindo.simpleapplication
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import id.inixindo.simpleapplication.adapters.CourseAdapter
 import id.inixindo.simpleapplication.apis.ApiRetrofit
 import id.inixindo.simpleapplication.models.CourseModel
@@ -18,6 +20,7 @@ class CoursesPageActivity : AppCompatActivity() {
     private lateinit var listCourses: RecyclerView      // nullable
     private lateinit var courseAdapter: CourseAdapter   // nullable
     private lateinit var swiperefresh: SwipeRefreshLayout
+    private lateinit var fabCreateCourse: FloatingActionButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +36,7 @@ class CoursesPageActivity : AppCompatActivity() {
         // mengenali seluruh komponen dalam layout
         listCourses = findViewById(R.id.listCourses)
         swiperefresh = findViewById(R.id.swiperefresh)
+        fabCreateCourse = findViewById(R.id.fabNewCourse)
 
         // memanggil course adapter
         configCourseListAdapter()
@@ -40,6 +44,10 @@ class CoursesPageActivity : AppCompatActivity() {
         swiperefresh.setOnRefreshListener {
             swiperefresh.isRefreshing = true
             getAllCourses()
+        }
+
+        fabCreateCourse.setOnClickListener {
+            startActivity(Intent(this@CoursesPageActivity, CreateCourseActivity::class.java))
         }
     }
 
